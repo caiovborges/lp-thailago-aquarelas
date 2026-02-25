@@ -1,0 +1,57 @@
+# Workflow simples para fazer build e deploy de um site Vite no GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Roda esse workflow sempre que houver um push na branch "main" ou "master"
+  push:
+    branches: ['main', 'master']
+
+  # Permite rodar esse workflow manualmente pela aba "Actions"
+  workflow_dispatch:
+
+# Configura as permissões para o GITHUB_TOKEN poder fazer o deploy no Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite apenas um deploy concorrente
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  # Job de Deploy
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build
+        run: npm run build
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # A pasta onde o Vite gera o build de produção é a "dist"
+          path: './dist'
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

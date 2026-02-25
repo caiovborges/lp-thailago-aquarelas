@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ateliê Thai Lago Cinematic Dark V2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#c9a74a",
+                        "obsidian": "#0D0D12",
+                        "slate-dark": "#2A2A35",
+                        "ivory": "#FAF8F5",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#0D0D12",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["'Playfair Display'", "serif"],
+                        "serif-italic": ["'Playfair Display'", "serif"],
+                        "mono": ["'JetBrains Mono'", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            z-index: 9999;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuC0EdH8-Y0Ure7FfnFufSEchsBruc2-c-oeQA4iosNZJqUROSnRAMO7EC_RNz4xaGzsw4JFFv7dfoUZPhkyQy9BFvIiuYh4qY8hCYs2Tf_YfwRgjjXJ6iL3aWza6vnqxGxZrqTAw12j8p7z4KgbSyuLbfw58AGzfZzBcc02suON0mj6SfneDiP2vswZiq2TpL-4KwyFQoj3P3ogwzP4isQW4UfjGi6draB4B1RrsHlETGQtMdGvLyayKas9cy-AChsVYKolspT1Oro)
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(201, 167, 74, 0.3)
+        }
+        .card-glow:hover {
+            box-shadow: 0 0 30px rgba(201, 167, 74, 0.1);
+            border-color: rgba(201, 167, 74, 0.4)
+        }
+        .gallery-glow {
+            box-shadow: 0 0 20px rgba(42, 42, 53, 0.5);
+            border: 1px solid rgba(201, 167, 74, 0.1);
+        }
+        .gallery-glow:hover {
+            box-shadow: 0 0 30px rgba(201, 167, 74, 0.15);
+            border-color: rgba(201, 167, 74, 0.3);
+        }
+        .sticky-card {
+            top: 100px
+        }
+        .pulse-green {
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+            animation: pulse 2s infinite
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+            } 70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+            } 100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 selection:bg-primary/30">
+<div class="noise-overlay"></div>
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
+<div class="bg-obsidian/80 backdrop-blur-xl border border-white/10 rounded-full px-8 py-4 flex items-center justify-between shadow-2xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">brush</span>
+<span class="font-bold tracking-tighter text-lg uppercase">Ateliê Thai Lago</span>
+</div>
+<div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+<a class="hover:text-primary transition-colors" href="#hero">Início</a>
+<a class="hover:text-primary transition-colors" href="#experiencia">Experiência</a>
+<a class="hover:text-primary transition-colors" href="#protocolo">Protocolo</a>
+<a class="hover:text-primary transition-colors" href="#sobre">Sobre</a>
+</div>
+<button class="bg-primary text-obsidian px-6 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform">
+            Consultar Agenda
+        </button>
+</div>
+</nav>
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden" id="hero">
+<div class="absolute inset-0 z-0">
+<img alt="Artist painting delicate watercolor strokes on paper" class="w-full h-full object-cover opacity-50 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzMRLzUXo2zXCR5bEj7YHWWKwcm-TugEz-2YVjoX7K6aggbu_LeEyPWLV5vezWnIPJGgyD1hWAaGtSFh3Ny8IAdJ5n0qG_CpbOuVy-scl4sw4_dI4o4iCgGe0ShKZAyQBs1e3n3tAV9VM_0TLpgBp4qHRCxwJ1pJyCpE8ZiZc2YUYlc-hzoEF8G6v0HQi1ujdQwV58NzWRGe2LsqwwWk9m27YpLRPaIlNfx3qUOQAd4MW8kHL7Xoej6Mo9rJXFNwI8TxaFL8ZeSSY"/>
+<div class="absolute inset-0 bg-gradient-to-b from-obsidian/20 via-obsidian/60 to-obsidian"></div>
+</div>
+<div class="relative z-10 text-center px-4 max-w-5xl">
+<p class="text-primary font-mono tracking-[0.3em] uppercase mb-6 text-sm">Fine Art &amp; Live Wedding Experience</p>
+<h1 class="text-5xl md:text-8xl font-black mb-8 leading-tight tracking-tight">
+            Experiência encontra <br/>
+<span class="font-serif-italic text-primary italic font-normal text-glow">Exclusividade.</span>
+</h1>
+<p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+            Live watercolor portraits para casamentos de alto padrão. Transformando momentos efêmeros em legados visuais inesquecíveis.
+        </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-primary text-obsidian px-10 py-5 rounded-full font-black text-lg hover:shadow-[0_0_30px_rgba(201,167,74,0.4)] transition-all">
+                SOLICITAR DATA
+            </button>
+<button class="border border-white/20 bg-white/5 backdrop-blur-sm text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 transition-all">
+                CONHECER PORTFÓLIO
+            </button>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 md:px-24 bg-obsidian" id="experiencia">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-slate-dark/40 border border-white/5 p-12 rounded-xl card-glow transition-all group">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">palette</span>
+<h3 class="text-2xl font-bold mb-4">Pintura ao Vivo</h3>
+<p class="text-slate-400 leading-relaxed">Pintura feita diante dos convidados em tempo real, capturando a essência do momento com maestria.</p>
+</div>
+<div class="bg-slate-dark/40 border border-white/5 p-12 rounded-xl card-glow transition-all group">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">workspace_premium</span>
+<h3 class="text-2xl font-bold mb-4">Obra Única</h3>
+<p class="text-slate-400 leading-relaxed">Cada convidado recebe uma obra de arte original e exclusiva, uma lembrança eterna do seu grande dia.</p>
+</div>
+<div class="bg-slate-dark/40 border border-white/5 p-12 rounded-xl card-glow transition-all group">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">auto_awesome</span>
+<h3 class="text-2xl font-bold mb-4">Sofisticação</h3>
+<p class="text-slate-400 leading-relaxed">Elevamos o nível do seu casamento com um entretenimento artístico que transborda elegância.</p>
+</div>
+</div>
+</section>
+<section class="py-32 px-6 text-center bg-obsidian relative">
+<div class="absolute inset-0 flex items-center justify-center opacity-5">
+<span class="text-[20rem] font-black text-white select-none">ART</span>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto">
+<h2 class="text-4xl md:text-7xl font-serif-italic italic text-primary leading-tight">
+            "Nós transformamos convidados em Arte Viva."
+        </h2>
+</div>
+</section>
+<section class="py-24 px-6 md:px-24 bg-obsidian min-h-screen" id="protocolo">
+<div class="max-w-6xl mx-auto">
+<div class="mb-20">
+<h2 class="text-primary font-mono text-sm tracking-widest uppercase mb-4">Metodologia</h2>
+<h3 class="text-4xl md:text-6xl font-black italic font-serif-italic">O Protocolo Exclusive</h3>
+</div>
+<div class="space-y-10 relative">
+<div class="sticky top-32 bg-slate-dark p-12 rounded-xl border border-white/10 shadow-2xl flex flex-col md:flex-row gap-12 items-center">
+<div class="text-7xl font-mono font-bold text-primary/20">01</div>
+<div>
+<h4 class="text-3xl font-bold mb-4 text-primary">Curadoria</h4>
+<p class="text-slate-300 text-lg leading-relaxed max-w-xl">Definição do estilo visual e paleta de cores que harmonizam com a decoração e o conceito do evento.</p>
+</div>
+<div class="flex-1 w-full h-48 rounded-lg overflow-hidden">
+<img alt="Luxury event moodboard with color swatches" class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1hLT7ESgwsycUUSTj_Sjxq2_RZbMi8aOv256FdftP5jpRTA2puD9Or7g169_c5-QrYu_qHuTKvkfHYFvKX7DosTXQDNyvEb_JbD8krFkI5zoGGD5Cdc1oVDCWs6OAsvXlnlg-OorhUKtCqa2FTfeXmJZpZCZHP8lIC8G6O0ofDG06x_BF6ZAO1JvOosBUQ8hmRK-Hw8k-XulJhfqLJO4WQpZFGVC0aQ3azBGCZ50m1CcEaBTYGuiWKk004Ojk3479AtfPo3UdiU8"/>
+</div>
+</div>
+<div class="sticky top-40 bg-slate-dark p-12 rounded-xl border border-white/10 shadow-2xl flex flex-col md:flex-row gap-12 items-center translate-y-4">
+<div class="text-7xl font-mono font-bold text-primary/20">02</div>
+<div>
+<h4 class="text-3xl font-bold mb-4 text-primary">Pintura ao Vivo</h4>
+<p class="text-slate-300 text-lg leading-relaxed max-w-xl">Presença marcante durante o evento, onde cada traço é executado com precisão e alma artística.</p>
+</div>
+<div class="flex-1 w-full h-48 rounded-lg overflow-hidden">
+<img alt="Close up of watercolor palette and brush" class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIAEk1TqAwVQcybK5nCoxYqZs-q_RvzpHvUvP-J3I059bi2JYUZiYz3GgJMrW8kLD0kcRJuDunOnNWWa_lBWruhIAfVpT3CVTVetGI-c7TX10bWIIS-8PtKabI9LchnR0PlT1_oIZoxAuGyAtqWFwyHTRuMB8IHZr6JOz0ilhnk3khYxfMv7yxWNAI0ZJEiEXs_nK-2w5WfmRZt41iNBCItHuXVN3w9ONtoN9Nt-3Y9pgLvFllRLaG7E7na1YIJWqvEAEUeR8efRw"/>
+</div>
+</div>
+<div class="sticky top-48 bg-slate-dark p-12 rounded-xl border border-white/10 shadow-2xl flex flex-col md:flex-row gap-12 items-center translate-y-8">
+<div class="text-7xl font-mono font-bold text-primary/20">03</div>
+<div>
+<h4 class="text-3xl font-bold mb-4 text-primary">Entrega Memorável</h4>
+<p class="text-slate-300 text-lg leading-relaxed max-w-xl">Finalização e entrega das obras em embalagens premium, garantindo um legado visual eterno.</p>
+</div>
+<div class="flex-1 w-full h-48 rounded-lg overflow-hidden">
+<img alt="Elegantly wrapped artwork on dark surface" class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeexopzeHmrinoiDb1NtJRmbmcaZ5tqavVxQubxj1VUQHY-waZbe2pt41OoG9ehyjvJVc2Y8ZbbzbJUYnCpAEGcOx05m-hU2_G8io-LXi7TF5doL9UWH8cltNfzjjAYTKeMxWmQz8lQq-jD4HZhcwWXSyYAxD5KRMQ6et9HSfna3n1eguo1pE1EMPhf9RDrjTtM8Ue8azDpGYfgHvjw5dnIhEY_CTXbzuIbTIw9OJbuuVGBRFTiHIjbad-L9UqHsNVvo25_PuQonI"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 md:px-24 bg-obsidian" id="sobre">
+<div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+<div class="relative group">
+<div class="absolute -inset-4 border border-primary/30 rounded-lg group-hover:border-primary/60 transition-colors"></div>
+<img alt="Thai Lago Portrait" class="relative z-10 w-full max-w-md h-[600px] object-cover rounded shadow-2xl desaturate-[0.8]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxSj4VGfJq3EMw-1wTMKpWIkTYp10CRaEVgl6CmVHW7CxB9-gQkQHp-Tlohgiqr1O1DWPxPVEAYjKHTR8fKx9bbr_6jluMjbiAxA35o6yUv34rJQTvQXcbmM9JY0Wug95flXsF6z6DnX9ZalDhYG9ElW-FETvazwOWq6Wl0Ygwa0loZvf813EqphYIAi3SgraTMuHkn3I75LneYbeca8Xv1iD7bo-NN6D_jjjLua7wZ9cHi196kw-nTL_yD-L84_aq5-xzcudLPmM"/>
+</div>
+<div class="flex-1 text-left">
+<h2 class="text-primary font-mono text-sm tracking-widest uppercase mb-4">A Artista</h2>
+<h3 class="text-6xl font-black mb-6">Thai Lago</h3>
+<p class="text-2xl font-serif-italic italic text-slate-300 mb-8 leading-relaxed">
+                "Minha missão é transformar a brevidade de um momento na eternidade de uma pintura."
+            </p>
+<div class="space-y-6 text-slate-400 leading-relaxed text-lg">
+<p>Com anos de experiência no mercado de luxo, Thai Lago consolidou-se como referência em live painting para eventos exclusivos.</p>
+<p>Seu olhar apurado e técnica fluida permitem que cada convidado não apenas veja a arte, mas se sinta parte dela.</p>
+</div>
+<button class="mt-12 bg-primary/10 border border-primary/30 text-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-primary hover:text-obsidian transition-all">
+                CONHECER PORTFÓLIO
+            </button>
+</div>
+</div>
+</section>
+<section class="py-32 px-6 md:px-24 bg-obsidian" id="depoimentos">
+<div class="max-w-6xl mx-auto">
+<div class="mb-16">
+<h2 class="text-primary font-mono text-sm tracking-[0.3em] uppercase mb-4 text-center">Depoimentos</h2>
+<h3 class="text-4xl md:text-6xl font-bold text-primary text-center">O impacto da arte.</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-slate-dark p-10 rounded-lg flex flex-col h-full border border-white/5 card-glow transition-all">
+<span class="font-serif text-6xl text-primary/40 leading-none mb-4 italic">"</span>
+<p class="text-slate-300 leading-relaxed text-lg mb-10 flex-grow">
+                    A Thai não apenas pintou, ela capturou a energia do nosso dia de uma forma que as fotos não conseguem. Foi a atração mais comentada pelos convidados.
+                </p>
+<div class="mt-auto">
+<p class="font-mono text-primary text-sm tracking-wider uppercase">Julia &amp; Marco (2025)</p>
+</div>
+</div>
+<div class="bg-slate-dark p-10 rounded-lg flex flex-col h-full border border-white/5 card-glow transition-all">
+<span class="font-serif text-6xl text-primary/40 leading-none mb-4 italic">"</span>
+<p class="text-slate-300 leading-relaxed text-lg mb-10 flex-grow">
+                    Uma experiência de luxo impecável. O cuidado com os detalhes, desde a paleta de cores até a embalagem final, superou todas as nossas expectativas.
+                </p>
+<div class="mt-auto">
+<p class="font-mono text-primary text-sm tracking-wider uppercase">Beatriz &amp; Henrique (2024)</p>
+</div>
+</div>
+<div class="bg-slate-dark p-10 rounded-lg flex flex-col h-full border border-white/5 card-glow transition-all">
+<span class="font-serif text-6xl text-primary/40 leading-none mb-4 italic">"</span>
+<p class="text-slate-300 leading-relaxed text-lg mb-10 flex-grow">
+                    Ter uma obra original sendo criada na hora é algo mágico. Transformou nosso jantar em uma verdadeira galeria de arte viva. Simplesmente magnífico.
+                </p>
+<div class="mt-auto">
+<p class="font-mono text-primary text-sm tracking-wider uppercase">Luísa &amp; Gabriel (2025)</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 px-6 md:px-24 bg-obsidian relative overflow-hidden" id="acervo">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20 text-center">
+<h2 class="text-5xl md:text-7xl font-bold text-ivory mb-6 tracking-tight">O Acervo.</h2>
+<p class="text-2xl md:text-3xl font-serif-italic italic text-primary">Pinceladas que contam histórias.</p>
+</div>
+<div class="columns-1 md:columns-2 gap-10 space-y-10">
+<div class="break-inside-avoid">
+<div class="gallery-glow rounded-xl overflow-hidden transition-all duration-700 hover:scale-[1.02]">
+<img alt="Watercolor painting of a wedding couple" class="w-full h-auto rounded-xl desaturate-[0.3] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgHoWSDIFn-w8A-gGsM7Y59dEbw15hg6pjd_pF2_6kWdQMzdKrF7KAGcnv-JsE7W0rxO-_jvk0lvfLGLGiAJq73eT4MGgZ5WXseJUD1B3djO5_d7_SxtjAqWxutIpTNuPPRFd48g8u45cMZhAHNyfjjAQWlsfIFFfs6TOpYooN87bzfBie6JBaT7FrJvZLS3X0t2VMkUhBu9F4iOepLSdklqZgXvZJaSQ6yfwp6scdfh006GhNLaUmTD2mUmIhxAOgvh7MI0a6p60"/>
+</div>
+</div>
+<div class="break-inside-avoid">
+<div class="gallery-glow rounded-xl overflow-hidden transition-all duration-700 hover:scale-[1.02]">
+<img alt="Detailed watercolor brushstrokes" class="w-full h-auto rounded-xl desaturate-[0.3] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg-wjam06u2ceVTP9OX-ugGW-Nzl5yKlVOd82kongsxGF55L6Q8sTgQin6fDpDdOEXxYl0ODarDfHamHlW1Dc52blqZpd670decU7-KPf8OHIWUuYl2rY2OxmI9PaiPdP11ICd96aIlyiycJFS8YvyBtCkclLOd1bigx_wpWNjHr4QUCr5vXJz8xA1ff6CUEWyOsLq3bbm0pSvWf1mUgaA9DYpvJIspN-bTOQuAKhC4FNSB_0SQX5-oHumzS9pmToB99tunjQKfZs"/>
+</div>
+</div>
+<div class="break-inside-avoid">
+<div class="gallery-glow rounded-xl overflow-hidden transition-all duration-700 hover:scale-[1.02]">
+<img alt="Elegant artistic composition on paper" class="w-full h-auto rounded-xl desaturate-[0.3] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCybVVJ4qfFSMMcO-RSO5wBCKJyYVuJz4Lo9-dpLoFdRsL6wsZEpbwM2NJpi0PWVEIwR4LQEDrsF8qdYn-hxhBrZg8pp_Brkspyh5FeoRCLvJkOz-ONCln0Uxz-Boz49ac6S-Lu5xAIqkHzWgkOREN0cQu-RJjiWIWml1Df_cbUbonMQOalRkfaEmfIq7UPfYoiR3FLaIP0v9720Gn1XT982T7c3Cqw6qv8BwS9Oqkm8MotIHGv3JJ1gC4BsAG60_ZL5X1x0acRZ8U"/>
+</div>
+</div>
+<div class="break-inside-avoid">
+<div class="gallery-glow rounded-xl overflow-hidden transition-all duration-700 hover:scale-[1.02]">
+<img alt="Fine art watercolor landscape" class="w-full h-auto rounded-xl desaturate-[0.3] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqv5ly1fIzDavU2OGZNixmB_K9tK2rGDpRssiG6DQCGqjqVPfF0xAUCnBSJxNqA3Os6EVP7PCkFAFAzUgUBhfdJATKTUH2Vjq_zASK1PlI-GJy_j7TWLMZHZEECvzJXYTnXR2z8qKQ-TdVYJ1j9qU7SEZA98TJG2SWyY_H-edtzO8zgjdeQZW5KdKDmO51RA5ad0JcUuRIiLKLBxocWqBgcdZrEWERuh4sHYR3Zp3IyRQmiHl0dyW82wzGezCKz2nwbWOvJeW9o8Q"/>
+</div>
+</div>
+</div>
+<div class="mt-20 flex justify-center">
+<div class="h-px w-32 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 md:px-24 bg-slate-dark/20 border-y border-white/5" id="contato">
+<div class="max-w-4xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-5xl font-serif-italic italic text-primary mb-4">Datas limitadas por mês.</h2>
+<p class="text-slate-400">Garanta a presença da arte viva em seu evento exclusivo.</p>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-widest font-mono text-slate-500">Nome Completo</label>
+<input class="w-full bg-obsidian border border-white/10 rounded-full px-6 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-ivory outline-none transition-all" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-widest font-mono text-slate-500">Data do Evento</label>
+<input class="w-full bg-obsidian border border-white/10 rounded-full px-6 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-ivory outline-none transition-all" type="date"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-widest font-mono text-slate-500">E-mail Corporativo</label>
+<input class="w-full bg-obsidian border border-white/10 rounded-full px-6 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-ivory outline-none transition-all" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-widest font-mono text-slate-500">WhatsApp</label>
+<input class="w-full bg-obsidian border border-white/10 rounded-full px-6 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-ivory outline-none transition-all" type="tel"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-widest font-mono text-slate-500">Sua Mensagem</label>
+<textarea class="w-full bg-obsidian border border-white/10 rounded-xl px-6 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-ivory outline-none transition-all" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-obsidian py-6 rounded-full font-black text-2xl hover:scale-[1.01] active:scale-[0.98] transition-all shadow-[0_0_40px_rgba(201,167,74,0.3)]" type="submit">
+                SOLICITAR ORÇAMENTO EXCLUSIVO
+            </button>
+</form>
+</div>
+</section>
+<footer class="bg-obsidian pt-32 pb-12 px-6 md:px-24">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12 border-b border-white/5 pb-20">
+<div>
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-primary text-3xl">brush</span>
+<span class="font-bold tracking-tighter text-2xl uppercase">Ateliê Thai Lago</span>
+</div>
+<p class="text-slate-500 max-w-sm leading-relaxed">
+                Elevando a experiência de eventos de luxo através da arte viva e retratos em aquarela sob medida.
+            </p>
+</div>
+<div class="flex flex-col gap-6">
+<span class="text-primary font-mono text-xs uppercase tracking-widest">Status de Agenda</span>
+<div class="flex items-center gap-3 bg-white/5 px-6 py-3 rounded-full border border-white/10">
+<span class="w-3 h-3 bg-green-500 rounded-full pulse-green"></span>
+<span class="text-sm font-bold">Disponível para 2026</span>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<span class="text-primary font-mono text-xs uppercase tracking-widest">Siga-nos</span>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Instagram</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Pinterest</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">LinkedIn</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-12 flex flex-col md:flex-row justify-between items-center text-slate-600 text-xs tracking-widest uppercase">
+<p>© 2024 Ateliê Thai Lago. All Rights Reserved.</p>
+<p>Fine Art Experience • Cinematic Edition</p>
+</div>
+</footer>
+
+</body></html>
