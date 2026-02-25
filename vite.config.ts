@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/aquarelas-dos-convidados/', // 👈 ESSA LINHA É OBRIGATÓRIA E DEVE SER O NOME DO SEU REPOSITORIO
+  base: '/lp-thailago-aquarelas/', // 👈 ESSA LINHA DEVE SEMPRE SER IGUAL AO FINAL DO SEU LINK
   esbuild: {
     drop: ['console', 'debugger'],
   },
